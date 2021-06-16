@@ -2,7 +2,12 @@ import {
     createStore
 } from 'vuex'
 import dayjs from 'dayjs'
+
+// vuex-persistedstate start
 import createPersistedState from 'vuex-persistedstate'
+const storedVuexValue = window.localStorage.getItem('vuex')
+export const storedVuex = storedVuexValue ? JSON.parse(storedVuexValue) : undefined
+// vuex-persistedstate end
 
 // vue-i18n start
 import {

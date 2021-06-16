@@ -6,9 +6,13 @@ import {
     messages, defaultLocale
 } from './config/index'
 
+import {
+    storedVuex
+} from '@/store'
+
 const i18n = createI18n({
     messages,
-    locale: defaultLocale,
+    locale: storedVuex ? storedVuex.selectedLanguage : defaultLocale,
     fallbackLocale: defaultLocale
 })
 

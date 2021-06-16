@@ -1,7 +1,7 @@
 <template>
     <div id="demo">
         <img alt="Vue logo" src="../../assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+        <HelloWorld :msg="$t('intro.titles.main')" />
 
         <select v-model="selectedLanguageModel" placeholder="Please Select">
             <option
