@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <MpaRoot>client-app</MpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(MpaRoot)\node_modules\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- extends watching group if you would like to use dotnet watch run-->
+    <Watch Include="$(MpaRoot)\public\*;$(MpaRoot)\src\**\*" Exclude="$(MpaRoot)\node_modules\**\*;obj\**\*;bin\**\*" />
+  </ItemGroup>
+
+  <Target Name="NpmRunBuildForDev" BeforeTargets="Build" Condition="'$(env)' == 'dev'">
+      <Exec WorkingDirectory="$(MpaRoot)" Command="npm run build-for-dev"/>
+  </Target>
+
+  <Target Name="NpmRunBuild" BeforeTargets="Build" Condition="'$(env)' != 'dev'">
+      <Exec WorkingDirectory="$(MpaRoot)" Command="npm run build"/>
+  </Target>
+
+</Project>

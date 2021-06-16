@@ -1,0 +1,6 @@
+{
+    "eslint.format.enable": true,
+    "eslint.workingDirectories": [
+        "./src/dotnetMultiVues.Web/client-app"
+    ]
+}

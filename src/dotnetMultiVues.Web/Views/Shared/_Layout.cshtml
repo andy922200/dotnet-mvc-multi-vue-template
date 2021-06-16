@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DotnetVues.Web</title>
+    <link rel="icon" href="/favicon.ico">
+    <environment include="Development,Staging,Production">
+        <link rel="stylesheet" href="~/css/chunk-vendors.css" />
+    </environment>
+    @RenderSection("Styles", required: false)
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-text" href="/">DotnetVues</a> 
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a asp-controller="Dashboard" asp-action="Index" class="navbar-item">Dashboard</a>
+                    <a asp-controller="Dashboard" asp-action="AnotherPage" class="navbar-item">Dashboard AnotherPage</a>
+                    <a asp-controller="Demo" asp-action="Index" class="navbar-item">Demo</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - DotnetVues.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Add the common js portions here -->
+    <environment include="Development,Staging,Production">
+        <script src="~/js/chunk-common.js"></script>
+        <script src="~/js/chunk-vendors.js"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
