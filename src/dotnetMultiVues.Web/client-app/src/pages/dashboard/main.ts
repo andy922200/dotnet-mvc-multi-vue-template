@@ -3,6 +3,9 @@ import {
 } from 'vue'
 import App from './App.vue'
 import store from '../../store'
+import VueI18n from '../../i18n/entry'
 import 'bootstrap/dist/css/bootstrap.css'
 
-createApp(App).use(store).mount('#dashboard')
+const app = createApp(App)
+app.use(VueI18n)
+app.use(store).mount('#dashboard')

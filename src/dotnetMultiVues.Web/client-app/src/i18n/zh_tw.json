@@ -1,0 +1,22 @@
+{
+    "index": {
+        "title": "這是首頁"
+    },
+    "about": {
+        "title": "這是關於頁"
+    },
+    "intro": {
+        "titles": {
+            "main": "歡迎來到你的 Vue.js + TypeScript",
+            "links": "相關連結"
+        },
+        "headline": "更多有關客製化你的專案的資訊<br />請上 <a href=\"https://cli.vuejs.org\" target=\"_blank\" rel=\"noopener\">觀看 Vue-cli 指南</a>.",
+        "essentialLinks": {
+            "Core Docs": "核心文件",
+            "Forum": "論壇",
+            "Community Chat": "社群討論",
+            "Twitter": "Twitter",
+            "News": "最新消息"
+        }
+    }
+}

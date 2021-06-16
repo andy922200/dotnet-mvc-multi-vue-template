@@ -2,6 +2,7 @@
     <div id="dashboard">
         <p>This is #dashboard page.</p>
         <p>{{resTest}}</p>
+        <p>Selected Language: {{selectedLanguage}}</p>
         <a class="navbar-item brand-text" href="./Dashboard/AnotherPage">DashboardAnotherPage</a>
     </div>
 </template>
@@ -10,6 +11,10 @@
 import {
     defineComponent
 } from 'vue'
+import {
+    mapState
+} from 'vuex'
+
 import axios from 'axios'
 
 export default defineComponent({
@@ -27,6 +32,9 @@ export default defineComponent({
         } catch (err) {
             console.log(err)
         }
+    },
+    computed: {
+        ...mapState(['selectedLanguage'])
     }
 })
 </script>
