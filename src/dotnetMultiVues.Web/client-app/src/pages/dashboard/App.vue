@@ -3,6 +3,7 @@
         <p>This is #dashboard page.</p>
         <p>{{resTest}}</p>
         <p>Selected Language: {{selectedLanguage}}</p>
+        <p>{{resTextFromOtherAPI}}</p>
         <a class="navbar-item brand-text" href="./Dashboard/AnotherPage">DashboardAnotherPage</a>
     </div>
 </template>
@@ -22,13 +23,16 @@ export default defineComponent({
     data () {
         return {
             test: 'Test String',
-            resTest: ''
+            resTest: '',
+            resTextFromOtherAPI: ''
         }
     },
     async created () {
         try {
-            const { data: res } = await axios.get('/api/dashboardAPI/5')
+            const { data: res } = await axios.get('/v0.1.0/dashboardAPI/5')
+            const { data: testRes } = await axios.get('/v0.1.0/dashboardAPI/toOtherAPI')
             this.resTest = res
+            this.resTextFromOtherAPI = testRes
         } catch (err) {
             console.log(err)
         }

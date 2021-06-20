@@ -11,6 +11,10 @@
     <Watch Include="$(MpaRoot)\public\*;$(MpaRoot)\src\**\*" Exclude="$(MpaRoot)\node_modules\**\*;obj\**\*;bin\**\*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
@@ -22,11 +26,11 @@
   </Target>
 
   <Target Name="NpmRunBuildForDev" BeforeTargets="Build" Condition="'$(env)' == 'dev'">
-      <Exec WorkingDirectory="$(MpaRoot)" Command="npm run build-for-dev"/>
+      <Exec WorkingDirectory="$(MpaRoot)" Command="npm run build-for-dev" />
   </Target>
 
   <Target Name="NpmRunBuild" BeforeTargets="Build" Condition="'$(env)' != 'dev'">
-      <Exec WorkingDirectory="$(MpaRoot)" Command="npm run build"/>
+      <Exec WorkingDirectory="$(MpaRoot)" Command="npm run build" />
   </Target>
 
 </Project>
