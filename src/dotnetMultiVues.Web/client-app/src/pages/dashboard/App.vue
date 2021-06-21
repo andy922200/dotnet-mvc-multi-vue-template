@@ -9,6 +9,7 @@
         <p>{{resTest}}</p>
         <p>Selected Language: {{selectedLanguage}}</p>
         <p>{{resTextFromOtherAPI}}</p>
+        <p>{{resTextFromOtherPostAPI}}</p>
         <a class="navbar-item brand-text" href="./Dashboard/AnotherPage">DashboardAnotherPage</a>
     </div>
 </template>
@@ -30,6 +31,7 @@ export default defineComponent({
             test: 'Test String',
             resTest: '',
             resTextFromOtherAPI: '',
+            resTextFromOtherPostAPI: '',
             radio: '1',
             value2: 50
         }
@@ -38,8 +40,19 @@ export default defineComponent({
         try {
             const { data: res } = await axios.get('/v0.1.0/dashboardAPI/5')
             const { data: testRes } = await axios.get('/v0.1.0/dashboardAPI/toOtherAPI')
+            const headers = {
+                'Content-Type': 'application/json'
+            }
+            const { data: testRes2 } = await axios.post('/v0.1.0/dashboardAPI/toOtherAPIPost', JSON.stringify({
+                firstName: 'Finn',
+                lastName: 'Williams'
+            }), {
+                headers
+            })
+
             this.resTest = res
             this.resTextFromOtherAPI = testRes
+            this.resTextFromOtherPostAPI = testRes2
         } catch (err) {
             console.log(err)
         }
