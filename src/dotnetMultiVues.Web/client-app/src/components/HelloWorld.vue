@@ -1,11 +1,11 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <p v-html="$t('intro.headline')"></p>
-        <h3>{{ $t("intro.titles.links") }}</h3>
+        <p v-html="$t('message.intro.headline')"></p>
+        <h3>{{ $t("message.intro.titles.links") }}</h3>
         <ul>
             <li v-for="(link, index) in essentialLinks" :key="index">
-                <a :href="link.url" target="_blank" rel="noopener">{{ $t(`intro.essentialLinks.${link.caption}`) }}</a>
+                <a :href="link.url" target="_blank" rel="noopener">{{ $t(`message.intro.essentialLinks.${link.caption}`) }}</a>
             </li>
         </ul>
     </div>

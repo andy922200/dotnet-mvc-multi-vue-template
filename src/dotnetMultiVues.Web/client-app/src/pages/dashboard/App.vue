@@ -1,6 +1,11 @@
 <template>
     <div id="dashboard">
         <p>This is #dashboard page.</p>
+        <el-radio v-model="radio" label="1">备选项</el-radio>
+        <el-radio v-model="radio" label="2">备选项</el-radio>
+
+        <span class="demonstration">自定义初始值</span>
+        <el-slider v-model="value2"></el-slider>
         <p>{{resTest}}</p>
         <p>Selected Language: {{selectedLanguage}}</p>
         <p>{{resTextFromOtherAPI}}</p>
@@ -24,7 +29,9 @@ export default defineComponent({
         return {
             test: 'Test String',
             resTest: '',
-            resTextFromOtherAPI: ''
+            resTextFromOtherAPI: '',
+            radio: '1',
+            value2: 50
         }
     },
     async created () {

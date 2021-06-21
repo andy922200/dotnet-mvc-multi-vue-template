@@ -1,7 +1,30 @@
 <template>
+    <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b"
+    >
+        <el-menu-item class="el-menu-item--custom" index="1">
+            <a href="/">DotnetVues</a>
+        </el-menu-item>
+        <el-menu-item class="el-menu-item--custom" index="2">
+            <a href="/Dashboard">Dashboard</a>
+        </el-menu-item>
+        <el-menu-item class="el-menu-item--custom" index="3">
+            <a href="/Dashboard/AnotherPage">Dashboard AnotherPage</a>
+        </el-menu-item>
+        <el-menu-item class="el-menu-item--custom" index="4">
+            <a href="/Dashboard/Demo">Demo</a>
+        </el-menu-item>
+    </el-menu>
+
     <div id="demo">
         <img alt="Vue logo" src="../../assets/logo.png">
-        <HelloWorld :msg="$t('intro.titles.main')" />
+        <HelloWorld :msg="$t('message.intro.titles.main')" />
 
         <select v-model="selectedLanguageModel" placeholder="Please Select">
             <option
@@ -17,7 +40,7 @@
 
 <script lang="ts">
 import {
-    defineComponent, computed
+    defineComponent, computed, ref
 } from 'vue'
 import {
     LayoutLanguages
@@ -39,6 +62,11 @@ export default defineComponent({
     setup () {
         const store = useStore()
         const { locale } = useI18n()
+        const activeIndex = ref('4')
+        const handleSelect = function (key:string, path:string) {
+            console.log(key, path)
+        }
+
         return {
             selectedLanguageModel: computed({
                 get () {
@@ -49,7 +77,9 @@ export default defineComponent({
                     store.dispatch('selectNewDefaultLanguage', value)
                 }
             }),
-            LayoutLanguages
+            LayoutLanguages,
+            activeIndex,
+            handleSelect
         }
     }
 })
@@ -63,5 +93,14 @@ export default defineComponent({
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    a {
+        padding: 22px 20px;
+        text-decoration: none;
+    }
+
+    .el-menu-item--custom {
+        padding: 0;
+    }
 }
 </style>
