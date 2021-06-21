@@ -5,6 +5,7 @@ import App from './App.vue'
 import store from '../../store'
 import VueI18n from '../../i18n/entry'
 import ElementPlus from 'element-plus'
+import 'element-plus/lib/theme-chalk/index.css'
 
 const app = createApp(App)
 app.use(VueI18n)
